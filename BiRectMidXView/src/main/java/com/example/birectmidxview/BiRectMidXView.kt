@@ -184,4 +184,27 @@ class BiRectMidXView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BiRectMidXView) {
+
+        private val animator : Animator = Animator(view)
+        private val brmx : BiRectMidX = BiRectMidX(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            brmx.draw(canvas, paint)
+            animator.animate {
+                brmx.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            brmx.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }

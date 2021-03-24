@@ -209,4 +209,13 @@ class BiRectMidXView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : BiRectMidXView {
+            val view : BiRectMidXView = BiRectMidXView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }

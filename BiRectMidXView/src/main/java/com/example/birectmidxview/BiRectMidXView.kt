@@ -21,7 +21,7 @@ val colors : Array<Int> = arrayOf(
 val sizeFactor : Float = 2.9f
 val strokeFactor : Float = 90f
 val delay : Long = 20
-val parts : Int = 5
+val parts : Int = 4
 val scGap : Float = 0.02f / parts
 val backColor : Int = Color.parseColor("#BDBDBD")
 
@@ -45,7 +45,7 @@ fun Canvas.drawBiRectMidX(scale : Float, w : Float, h : Float, paint : Paint) {
         save()
         scale(1f - 2 * j, 1f)
         drawRect(RectF(size * sf2, -size, size, -size + 2 * size * sf1), paint)
-        drawLine(size, -size, size - 2 * size * sf3, -size + 2 * size * sf3, paint)
+        drawLine(size * sf3, -size * sf3,  -size * sf3, size * sf3, paint)
         restore()
     }
     restore()

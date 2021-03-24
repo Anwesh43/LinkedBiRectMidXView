@@ -35,9 +35,11 @@ fun Canvas.drawBiRectMidX(scale : Float, w : Float, h : Float, paint : Paint) {
     val sf1 : Float = sf.divideScale(0, parts)
     val sf2 : Float = sf.divideScale(1, parts)
     val sf3 : Float = sf.divideScale(2, parts)
+    val sf4 : Float = sf.divideScale(3, parts)
     val size : Float = Math.min(w, h) / sizeFactor
     save()
     translate(w / 2, h / 2)
+    rotate(90f * sf4)
     paint.style = Paint.Style.STROKE
     drawRect(RectF(-size, -size, size, -size + 2 * size * sf1), paint)
     paint.style = Paint.Style.FILL

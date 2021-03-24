@@ -1,0 +1,3 @@
+include ':BiRectMidXView'
+include ':app'
+rootProject.name = "LinkedBiRectMidXView"
